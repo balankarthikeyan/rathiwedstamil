@@ -1,0 +1,8 @@
+{
+  //https://nextjs.org/docs#customizing-babel-config
+  "presets": ["next/babel"],
+  "plugins": [
+    ["babel-plugin-styled-components", {}, "babel-styled-components"],
+    ["styled-components", { "ssr": true, "pure": true, "displayName": false }]
+  ]
+}
