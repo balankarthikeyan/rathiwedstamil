@@ -20,12 +20,35 @@ const RightPanelWrapper = styled(Grid)`
   display: flex;
 `
 
-function Home(props) {
+function Login(props) {
   const [cookies, setCookie] = useCookies(['userId'])
+  // const { axiosApiData, doGetAxios = () => '' } = Utils.useAxios() || {}
+  // const APIProviderUrl = 'https://countriesnow.space/api/v0.1/countries/iso'
+
+  React.useEffect(async () => {
+    // await doGetAxios({ url: APIProviderUrl })
+    const {
+      userId = '',
+      isRememeberMe = 'false',
+      logout = 'false',
+      AppServiceAuthSession = '',
+    } = cookies || {}
+
+    if (logout === 'true' && AppServiceAuthSession.length > 0) {
+      // console.log('logout>>>> reload!!!!')
+    }
+    if (!Utils.JSUtils.isEmpty(userId) && isRememeberMe === 'true') {
+      Router.push('/myworkspace')
+    }
+  }, [])
+
+  // React.useEffect(async () => {
+  //   console.log('fetchListData', axiosApiData)
+  // }, [axiosApiData])
 
   return (
     <main>
-      <Helmet title={`TEST`} />
+      <Helmet title={`Login`} />
       <Grid
         style={{
           display: 'flex',
@@ -41,18 +64,18 @@ function Home(props) {
             alignItems: 'center',
           }}
         >
-          {`TEST`}
+          <Template.LoginLeftPanel />
         </Grid>
-        <Link href={{ pathname: '/contactus', query: { name: 'test' } }}>
-          <a>Go to contact us Me</a>
-        </Link>
+        <RightPanelWrapper>
+          <Template.LoginRightPanel />
+        </RightPanelWrapper>
       </Grid>
     </main>
   )
 }
 
-export { Home }
-export default Home
+export { Login }
+export default Login
 
 /* 
       <Helmet title={`Login`} />
