@@ -191,11 +191,11 @@ class MyApp extends App {
                   </div>
                 </>
               )}
-              {this.state.loading ? (
+              {/* {this.state.loading ? (
                 pathname !== '/' && <ComponentLib.Header {...router} />
               ) : (
                 <></>
-              )}
+              )} */}
               <div
                 style={{
                   transition: 'all 250ms ease',
@@ -204,11 +204,11 @@ class MyApp extends App {
               >
                 <Component {...pageProps} />
               </div>
-              {this.state.loading ? (
+              {/* {this.state.loading ? (
                 pathname !== '/' && <ComponentLib.Footer />
               ) : (
                 <></>
-              )}
+              )} */}
             </ThemeProvider>
           </StylesProvider>
         </CookiesProvider>
